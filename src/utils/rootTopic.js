@@ -6,3 +6,12 @@ export const mapRootTopic = {
     'vocabulary': '6116216a1e6e0c7cbe110cdf',
     'grammar': '6135d92965d71f3a51f5cc10'
 };
+
+export const mapPracticeChild = {
+    'listening': '',
+    'reading': '',
+    'speaking': '',
+    'writing': '',
+    'vocabulary': '',
+    'grammar': ''
+};
