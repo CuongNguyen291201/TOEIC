@@ -1,0 +1,149 @@
+.practice {
+    .list-test {
+        box-shadow: 0px 4px 30px rgba(95, 73, 118, 0.1);
+        padding: 30px 45px;
+        .section-current {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            background: #7e67f2;
+            border-radius: 10px 10px 0px 0px;
+            padding: 10px 15px;
+            width: fit-content;
+        }
+        .test-detail {
+            font-size: 18px;
+            .test-item {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .dot {
+                    font-size: 12px;
+                    color: #7e67f2;
+                    flex: 1;
+                }
+                .name {
+                    flex: 2;
+                }
+                .question-number {
+                    flex: 3;
+                }
+                .test-progress {
+                    flex: 12;
+                    text-align: right;
+                }
+            }
+        }
+    }
+
+    .section {
+        background: #ffffff;
+        box-shadow: 0px 4px 30px rgba(95, 73, 118, 0.1);
+        border-radius: 0px;
+        text-align: center;
+        .section-parent {
+            padding: 25px 0;
+            .topic {
+                font-size: 24px;
+                font-weight: 700;
+                color: #333333;
+                text-transform: uppercase;
+                border-bottom: 1px solid #f3f3f3;
+            }
+        }
+        .section-child {
+            .section-item {
+                font-size: 18px;
+                font-weight: 700;
+                padding: 12px 0;
+                margin: 0 20px 15px 20px;
+                background: #ededff;
+                border-radius: 10px;
+                a {
+                    text-decoration: none;
+                    color: #655ba3;
+                }
+                a:visited {
+                    color: #655ba3;
+                }
+            }
+        }
+    }
+    .other-pratice {
+        background: #ffffff;
+        box-shadow: 0px 4px 30px rgba(95, 73, 118, 0.1);
+        border-radius: 0px;
+        text-align: center;
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            padding: 25px 0;
+            color: #333333;
+            text-transform: uppercase;
+            border-bottom: 1px solid #f3f3f3;
+        }
+        .practice-child {
+            padding: 25px 0;
+            .pratice-item {
+                display: flex;
+                text-align: center;
+                justify-content: space-between;
+                font-size: 18px;
+                font-weight: 700;
+                // padding: 12px 10px;
+                margin: 0 25px 15px 25px;
+                border-radius: 10px;
+                font-size: 20px;
+                font-weight: 700;
+                .name {
+                    flex: 2;
+                    text-align: left;
+                    padding: 12px 20px;
+                }
+                .btn-join {
+                    flex: 1;
+                    padding-top: 12px;
+                    color: #fff;
+                    align-items: center;
+                    border-radius: 0 7px 7px 0;
+                }
+            }
+            .vocabulary {
+                border: 2px solid #f2c94c;
+                .btn-join {
+                    background-color: #f2c94c;
+                }
+            }
+            .writing {
+                border: 2px solid #ffb890;
+                .btn-join {
+                    background-color: #ffb890;
+                }
+            }
+            .speaking {
+                border: 2px solid #60d1ea;
+                .btn-join {
+                    background-color: #60d1ea;
+                }
+            }
+            .grammar {
+                border: 2px solid #a9acfd;
+                .btn-join {
+                    background-color: #a9acfd;
+                }
+            }
+            .reading {
+                border: 2px solid #ff7bea;
+                .btn-join {
+                    background-color: #ff7bea;
+                }
+            }
+            .listening {
+                border: 2px solid #6fffd4;
+                .btn-join {
+                    background-color: #6fffd4;
+                }
+            }
+        }
+    }
+}
