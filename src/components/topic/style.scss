@@ -1,11 +1,55 @@
 .practice {
-    padding: 100px 0;
+    padding: 50px 0;
     .title-practice {
-        color: #F798FF;
+        color: #f798ff;
         font-size: 50px;
         font-weight: 700;
         text-align: center;
         text-transform: uppercase;
+        @media all and (max-width: 430px) {
+            font-size: 30px;
+        }
+    }
+    .btn-download {
+        text-align: center;
+        padding-bottom: 50px;
+        button {
+            background: linear-gradient(93.28deg, #b464d5 2.09%, #7751d2 62.14%, #4a37be 103.6%);
+            border-radius: 5px;
+            align-items: center;
+            a {
+                color: #fff;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                padding: 5px;
+                font-size: 20px;
+                font-weight: 700;
+                img {
+                    @media all and (max-width: 430px) {
+                        width: 15px;
+                    }
+                }
+                span {
+                    padding-left: 10px;
+                    @media all and (max-width: 430px) {
+                        padding-left: 5px;
+                    }
+                }
+                @media all and (max-width: 430px) {
+                    font-size: 14px;
+                }
+            }
+        }
+        .app-store {
+            margin-left: 20px;
+            @media all and (max-width: 430px) {
+                padding: 4px 5px;
+            }
+        }
+        @media all and (max-width: 430px) {
+            padding-bottom: 20px;
+        }
     }
     .list-test {
         box-shadow: 0px 4px 30px rgba(95, 73, 118, 0.1);
@@ -18,7 +62,7 @@
             border-radius: 10px 10px 0px 0px;
             padding: 10px 15px;
             width: fit-content;
-            @media screen and (max-width: 430px) {
+            @media all and (max-width: 430px) {
                 font-size: 14px;
             }
         }
@@ -35,7 +79,7 @@
                     font-size: 12px;
                     color: #7e67f2;
                     flex: 1;
-                    @media screen and (max-width: 430px) {
+                    @media all and (max-width: 430px) {
                         font-size: 10px;
                     }
                 }
@@ -43,7 +87,7 @@
                     flex: auto;
                     color: #29313a;
                     font-weight: 600;
-                    @media screen and (max-width: 1025px) {
+                    @media all and (max-width: 1025px) {
                         flex: 10;
                     }
                 }
@@ -51,8 +95,8 @@
                     flex: 15;
                     color: #797979;
                     font-weight: 400;
-                    @media screen and (max-width: 1025px) {
-                        flex: 3;
+                    @media all and (max-width: 1025px) {
+                        flex: auto;
                         text-align: center;
                     }
                 }
@@ -65,22 +109,22 @@
                     background: #f3f0ff;
                     border-radius: 5px;
                     width: fit-content;
-                    @media screen and (max-width: 1025px) {
+                    @media all and (max-width: 1025px) {
                         padding: 10px 25px;
                     }
-                    @media screen and (max-width: 430px) {
+                    @media all and (max-width: 430px) {
                         padding: 10px;
                     }
                 }
             }
-            @media screen and (max-width: 1025px) {
+            @media all and (max-width: 1025px) {
                 font-size: 14px;
             }
-            @media screen and (max-width: 430px) {
+            @media all and (max-width: 430px) {
                 font-size: 12px;
             }
         }
-        @media screen and (max-width: 430px) {
+        @media all and (max-width: 430px) {
             padding: 10px;
         }
         .show-more {
@@ -111,7 +155,7 @@
                 color: #333333;
                 text-transform: uppercase;
                 border-bottom: 1px solid #f3f3f3;
-                @media screen and (max-width: 1025px) {
+                @media all and (max-width: 1025px) {
                     padding: 15px 0;
                     font-size: 17px;
                 }
@@ -134,22 +178,30 @@
                     a:visited {
                         color: #655ba3;
                     }
-                    @media screen and (max-width: 1025px) {
+                    @media all and (max-width: 1025px) {
                         padding: 10px 0;
                         margin: 0 10px 10px;
-                        font-size: 14px;
+                        font-size: 12px;
                     }
-                    @media screen and (max-width: 430px) {
+                    @media all and (max-width: 430px) {
                         margin: 0 10% 10px;
                     }
                 }
             }
-            @media screen and (max-width: 1025px) {
+            .section-active {
+                .section-item {
+                    background: #a168ff;
+                    a {
+                        color: #fff !important;
+                    }
+                }
+            }
+            @media all and (max-width: 1025px) {
                 padding: 15px 0;
             }
         }
     }
-    .other-pratice {
+    .other-practice {
         background: #ffffff;
         box-shadow: 0px 4px 30px rgba(95, 73, 118, 0.1);
         border-radius: 0px;
@@ -162,14 +214,14 @@
             color: #333333;
             text-transform: uppercase;
             border-bottom: 1px solid #f3f3f3;
-            @media screen and (max-width: 1025px) {
+            @media all and (max-width: 1025px) {
                 padding: 15px 0;
                 font-size: 17px;
             }
         }
         .practice-child {
             padding: 25px 0;
-            .pratice-item {
+            .practice-item {
                 display: flex;
                 text-align: center;
                 justify-content: space-between;
@@ -183,10 +235,10 @@
                     text-align: left;
                     padding: 12px 20px;
                     border-right: none !important;
-                    @media screen and (max-width: 1025px) {
+                    @media all and (max-width: 1025px) {
                         padding: 10px 5px;
                     }
-                    @media screen and (max-width: 430px) {
+                    @media all and (max-width: 430px) {
                         padding: 10px 15px;
                     }
                 }
@@ -200,11 +252,11 @@
                     text-decoration: none;
                     color: #fff;
                 }
-                @media screen and (max-width: 1025px) {
+                @media all and (max-width: 1025px) {
                     margin: 0 10px 10px;
-                    font-size: 14px;
+                    font-size: 12px;
                 }
-                @media screen and (max-width: 430px) {
+                @media all and (max-width: 430px) {
                     margin: 0 10% 10px;
                 }
             }
@@ -265,9 +317,12 @@
             .active {
                 display: none;
             }
-            @media screen and (max-width: 1025px) {
+            @media all and (max-width: 1025px) {
                 padding: 15px 0;
             }
         }
+    }
+    @media all and (max-width: 430px) {
+        padding: 20px 0;
     }
 }

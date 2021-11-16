@@ -6,17 +6,16 @@ function App() {
   const param = window.location.pathname.split("/");
   const topicParent = param[param.length - 1];
 
-  console.log('topic parent', topicParent);
-
   return (
-    <>
-      {
+    <div>
+      {/* {
         topicParent === "practice-list" ?
           <Topic />
           :
           <FullTest />
-      }
-    </>
+      } */}
+      <Topic />
+    </div>
   )
 }
 

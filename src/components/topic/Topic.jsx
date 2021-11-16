@@ -12,13 +12,10 @@ const Pratice = () => {
     const [sectionCurrent, setSectionCurrent] = useState();
     const [pagination, setPagination] = useState(false);
 
-    // const param = window.location.pathname.split("/");
-    // const topicParent = param[param.length - 1];
     const activeTopic = new URLSearchParams(window.location.search);
     const topic = activeTopic.get('topic');
     const activeTp = !activeTopic.get('section') ? 0 : activeTopic.get('section');
     mapPracticeChild[topic] = 'active';
-
 
     useEffect(() => {
         getTopic(topic)
@@ -44,16 +41,21 @@ const Pratice = () => {
             })
     }
 
-    console.log('render');
-    // console.log('section', topicSection);
-    // console.log('test', topicTest);
-
     return (
         <div className="practice">
             <div className="container">
-                <div className="title-practice">
+                <h1 className="title-practice">
                     IELTS {topic}
+                </h1>
+                <div className="btn-download">
+                    <Button className="google-play">
+                        <a href="https://play.google.com/store/apps/details?id=com.estudyme.ielts"><img src="https://ielts-testpro.com/wp-content/uploads/2021/09/Frame.png" alt="" /> <span>Google Play</span></a>
+                    </Button>
+                    <Button className="app-store">
+                        <a href="https://apps.apple.com/us/app/ielts-test-pro-2019/id1073549959"><img src="https://ielts-testpro.com/wp-content/uploads/2021/09/Vector.png" alt="" /> <span>App Store</span></a>
+                    </Button>
                 </div>
+
                 <Grid container spacing={3}>
                     <Grid item lg={9} md={9} sm={9} xs={12}>
                         <div className="list-test">
@@ -85,41 +87,41 @@ const Pratice = () => {
                             <div className="list-section">
                                 {
                                     topicSection && topicSection.map((item, index) => (
-                                        <div className="section-child" key={item.topicExerciseId}>
-                                            <div className="section-item"><a href={`/practice-list?topic=` + topic + `&section=` + index}>{item.name}</a></div>
+                                        <div className={+activeTp === +index ? 'section-child section-active' : 'section-child'} key={item.topicExerciseId}>
+                                            <div className="section-item"><a href={`?topic=` + topic + `&section=` + index}>{item.name}</a></div>
                                         </div>
                                     ))
                                 }
                             </div>
                         </div>
-                        <div className="other-pratice">
+                        <div className="other-practice">
                             <div className="title">
                                 Other Pratice
                             </div>
                             <div className="practice-child">
-                                <div className={`pratice-item vocabulary ` + mapPracticeChild['vocabulary']}>
+                                <div className={`practice-item vocabulary ` + mapPracticeChild['vocabulary']}>
                                     <div className="name">VOCABULARY</div>
-                                    <div className="btn-join"><a href="/practice-list?topic=vocabulary">Join</a></div>
+                                    <div className="btn-join"><a href="?topic=vocabulary">Join</a></div>
                                 </div>
-                                <div className={`pratice-item writing ` + mapPracticeChild['writing']}>
+                                <div className={`practice-item writing ` + mapPracticeChild['writing']}>
                                     <div className="name">WRITING</div>
-                                    <div className="btn-join"><a href="/practice-list?topic=writing">Join</a></div>
+                                    <div className="btn-join"><a href="?topic=writing">Join</a></div>
                                 </div>
-                                <div className={`pratice-item speaking ` + mapPracticeChild['speaking']}>
+                                <div className={`practice-item speaking ` + mapPracticeChild['speaking']}>
                                     <div className="name">SPEAKING</div>
-                                    <div className="btn-join"><a href="/practice-list?topic=speaking">Join</a></div>
+                                    <div className="btn-join"><a href="?topic=speaking">Join</a></div>
                                 </div>
-                                <div className={`pratice-item grammar ` + mapPracticeChild['grammar']}>
+                                <div className={`practice-item grammar ` + mapPracticeChild['grammar']}>
                                     <div className="name">GRAMMAR</div>
-                                    <div className="btn-join"><a href="/practice-list?topic=grammar">Join</a></div>
+                                    <div className="btn-join"><a href="?topic=grammar">Join</a></div>
                                 </div>
-                                <div className={`pratice-item reading ` + mapPracticeChild['reading']}>
+                                <div className={`practice-item reading ` + mapPracticeChild['reading']}>
                                     <div className="name">READING</div>
-                                    <div className="btn-join"><a href="/practice-list?topic=reading">Join</a></div>
+                                    <div className="btn-join"><a href="?topic=reading">Join</a></div>
                                 </div>
-                                <div className={`pratice-item listening ` + mapPracticeChild['listening']}>
+                                <div className={`practice-item listening ` + mapPracticeChild['listening']}>
                                     <div className="name">LISTENING</div>
-                                    <div className="btn-join"><a href="/practice-list?topic=listening">Join</a></div>
+                                    <div className="btn-join"><a href="?topic=listening">Join</a></div>
                                 </div>
                             </div>
                         </div>
