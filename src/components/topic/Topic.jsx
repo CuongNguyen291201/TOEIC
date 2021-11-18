@@ -18,12 +18,13 @@ const Pratice = () => {
     mapPracticeChild[topic] = 'active';
 
     useEffect(() => {
-        getTopic(topic)
+        const localUserId = localStorage.getItem("_static_uid");
+        getTopic(topic, 0, localUserId || undefined)
             .then((section) => {
                 setTopicSection(section);
                 setSectionCurrent(section[activeTp]);
 
-                getTopic(section[activeTp]?.topicExerciseId)
+                getTopic(section[activeTp]?.topicExerciseId, 0,  localUserId || undefined)
                     .then((test) => {
                         if (test.length < 10) setPagination(true);
                         setTopicTest(test);
@@ -32,7 +33,8 @@ const Pratice = () => {
     }, [])
 
     const getTest = () => {
-        getTopic(sectionCurrent?.topicExerciseId, topicTest.length)
+        const localUserId = localStorage.getItem("_static_uid");
+        getTopic(sectionCurrent?.topicExerciseId, topicTest.length,  localUserId || undefined)
             .then((test) => {
                 if (test) {
                     if (test.length < 10) setPagination(true);
@@ -65,16 +67,16 @@ const Pratice = () => {
                                     topicTest && topicTest.map((item) => (
                                         <div className="test-item" key={item.topicExerciseId}>
                                             <FiberManualRecordIcon className="dot" />
-                                            <div className="name"><a href={`https://ielts-testpro.com/learning?id=` + item.topicExerciseId}>{item.name}</a></div>
-                                            <div className="question-number">{item?.topicExercise?.questionsNum} câu hỏi</div>
+                                            <div className="name"><a href={`https://ielts-testpro.com/learning?id=${item._id}`}>{item.name}</a></div>
+                                            <div className="question-number">{item?.topicExercise?.questionsNum} questions</div>
                                             <div className="test-progress">{item.topicProgress ? item.topicProgress.progress + '%' : '0%'}</div>
                                         </div>
                                     ))
                                 }
                             </div>
                             <div className={pagination ? 'non-active' : 'show-more'}>
-                                <Button className="btn-show-more" onClick={() => getTest()}>
-                                    Xem thêm <KeyboardArrowDownIcon />
+                                <Button className="btn-show-more" onClick={() => getTest()} endIcon={<KeyboardArrowDownIcon />}>
+                                    Load More
                                 </Button>
                             </div>
                         </div>
