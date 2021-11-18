@@ -85,10 +85,13 @@
                 }
                 .name {
                     flex: auto;
-                    color: #29313a;
                     font-weight: 600;
                     @media all and (max-width: 1025px) {
                         flex: 10;
+                    }
+                    a {
+                        text-decoration: none;
+                        color: #29313a;
                     }
                 }
                 .question-number {

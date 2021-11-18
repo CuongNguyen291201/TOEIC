@@ -1,0 +1,23 @@
+.page-not-found {
+    text-align: center;
+    margin: 0 auto;
+    padding: 50px 0;
+    
+    img {
+        width: 50%;
+        height: 50%;
+        object-fit: cover;
+        @media all and (max-width: 430px) {
+            width: 80%;
+        }
+    }
+    .back-home {
+        background: #121c51;
+        font-size: 20px;
+        font-weight: 700;
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+}
