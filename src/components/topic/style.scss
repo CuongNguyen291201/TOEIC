@@ -145,7 +145,7 @@
             display: none;
         }
     }
-    .section {
+    .section, .section-mb {
         background: #ffffff;
         box-shadow: 0px 4px 30px rgba(95, 73, 118, 0.1);
         border-radius: 0px;
@@ -204,6 +204,18 @@
             }
         }
     }
+    .section {
+        @media all and (max-width: 430px) {
+            display: none;
+        }
+    }
+    .section-mb {
+        display: none;
+        @media all and (max-width: 430px) {
+            display: block;
+        }
+    }
+
     .other-practice {
         background: #ffffff;
         box-shadow: 0px 4px 30px rgba(95, 73, 118, 0.1);

@@ -24,7 +24,7 @@ const Pratice = () => {
                 setTopicSection(section);
                 setSectionCurrent(section[activeTp]);
 
-                getTopic(section[activeTp]?.topicExerciseId, 0,  localUserId || undefined)
+                getTopic(section[activeTp]?.topicExerciseId, 0, localUserId || undefined)
                     .then((test) => {
                         if (test.length < 10) setPagination(true);
                         setTopicTest(test);
@@ -34,7 +34,7 @@ const Pratice = () => {
 
     const getTest = () => {
         const localUserId = localStorage.getItem("_static_uid");
-        getTopic(sectionCurrent?.topicExerciseId, topicTest.length,  localUserId || undefined)
+        getTopic(sectionCurrent?.topicExerciseId, topicTest.length, localUserId || undefined)
             .then((test) => {
                 if (test) {
                     if (test.length < 10) setPagination(true);
@@ -59,6 +59,22 @@ const Pratice = () => {
                 </div>
 
                 <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <div className="section-mb">
+                            <div className="section-parent">
+                                <div className="topic">IELTS {topic}</div>
+                            </div>
+                            <div className="list-section">
+                                {
+                                    topicSection && topicSection.map((item, index) => (
+                                        <div className={+activeTp === +index ? 'section-child section-active' : 'section-child'} key={item.topicExerciseId}>
+                                            <div className="section-item"><a href={`?topic=` + topic + `&section=` + index}>{item.name}</a></div>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </Grid>
                     <Grid item lg={9} md={9} sm={9} xs={12}>
                         <div className="list-test">
                             <div className="section-current">{sectionCurrent?.name}</div>
