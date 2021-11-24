@@ -6,8 +6,6 @@ function App() {
   const param = window.location.pathname.split("/");
   const topicParent = param[param.length - 2];
 
-  console.log(typeof topicParent);
-
   return (
     <div>
       {

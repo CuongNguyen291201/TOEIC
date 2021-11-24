@@ -8,7 +8,7 @@ const PageNotFound = () => {
             <img src="https://ielts-testpro.com/wp-content/uploads/2021/09/Group-8611-1.jpg" alt="" />
             <div>
 
-                <Button className="back-home" variant="contained"><Link href="https://ielts-testpro.com">GO BACK HOME</Link></Button>
+                <Button className="back-home" variant="contained"><Link href="https://toeic-testpro.com">GO BACK HOME</Link></Button>
             </div>
         </div>
     )
