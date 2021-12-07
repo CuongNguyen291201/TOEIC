@@ -30,7 +30,7 @@ const Pratice = () => {
                         setTopicTest(test);
                     })
             })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const getTest = () => {
@@ -155,23 +155,6 @@ const Pratice = () => {
                         </div>
                     </Grid>
                     <Grid item lg={3} md={3} sm={12} xs={12}>
-                        <div className="other-practice">
-                            <div className="title">Other Practices</div>
-                            <div className="practice-child">
-                                <div className={`practice-item vocabulary ` + mapPracticeChild['vocabulary']}>
-                                    <div className="name">VOCABULARY</div>
-                                    <div className="btn-join"><a href="?topic=vocabulary">Join</a></div>
-                                </div>
-                                <div className={`practice-item grammar ` + mapPracticeChild['grammar']}>
-                                    <div className="name">GRAMMAR</div>
-                                    <div className="btn-join"><a href="?topic=grammar">Join</a></div>
-                                </div>
-                                <div className={`practice-item practice-test ` + mapPracticeChild['practice']}>
-                                    <div className="name">PRACTICE</div>
-                                    <div className="btn-join"><a href="?topic=practice">Join</a></div>
-                                </div>
-                            </div>
-                        </div>
                         {
                             topic === 'practice'
                                 ?
@@ -190,6 +173,23 @@ const Pratice = () => {
                                 :
                                 ""
                         }
+                        <div className="other-practice">
+                            <div className="title">Other Practices</div>
+                            <div className="practice-child">
+                                <div className={`practice-item vocabulary ` + mapPracticeChild['vocabulary']}>
+                                    <div className="name">VOCABULARY</div>
+                                    <a className="btn-join" href="?topic=vocabulary">Join</a>
+                                </div>
+                                <div className={`practice-item grammar ` + mapPracticeChild['grammar']}>
+                                    <div className="name">GRAMMAR</div>
+                                    <a className="btn-join" href="?topic=grammar">Join</a>
+                                </div>
+                                <div className={`practice-item practice-test ` + mapPracticeChild['practice']}>
+                                    <div className="name">PRACTICE</div>
+                                    <a className="btn-join" href="?topic=practice">Join</a>
+                                </div>
+                            </div>
+                        </div>
                     </Grid>
                 </Grid>
             </div>
