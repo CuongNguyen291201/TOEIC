@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Grid, Button } from '@mui/material';
+import { Grid, Button, Link, Box } from '@mui/material';
+import { styled } from "@mui/material/styles";
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { getTopic } from '../../api/getTopic';
@@ -29,6 +30,7 @@ const Pratice = () => {
                         setTopicTest(test);
                     })
             })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const getTest = () => {
@@ -52,8 +54,16 @@ const Pratice = () => {
         }
     }
 
-    console.log('section', topicSection);
-    console.log('test', topicTest);
+    const ReviewButton = styled(Button)({
+        borderRadius: "5px",
+        border: "0.5px solid #B6B6B6",
+        color: "#797979",
+        fontWeight: 600,
+        '&:hover': {
+            border: "0.5px solid #B6B6B6",
+            color: "#797979"
+        }
+    });
 
     return (
         <div className="practice">
@@ -71,10 +81,10 @@ const Pratice = () => {
                 </div>
 
                 <Grid container spacing={3}>
-                    <Grid item xs={12}>
+                    <Grid item sm={12} xs={12}>
                         <div className="section-mb">
                             <div className="section-parent">
-                                <div className="topic">{topic}</div>
+                                <div className="topic">OTHER PRACTICES</div>
                             </div>
                             <div className="list-section">
                                 {
@@ -87,31 +97,54 @@ const Pratice = () => {
                             </div>
                         </div>
                     </Grid>
-                    <Grid item lg={9} md={9} sm={9} xs={12}>
+                    <Grid item lg={9} md={9} sm={12} xs={12}>
                         <div className="list-test">
-                            <div className="section-current">{sectionCurrent?.name}</div>
+                            <div className="section-current">{topic === 'practice' ? sectionCurrent?.name : topic}</div>
                             <div className="test-detail">
                                 {
                                     topic === 'grammar' || topic === 'vocabulary'
                                         ?
-                                        topicSection && topicSection.map((item) => (
-                                            <div className="test-item" key={item.topicExerciseId}>
-                                                <FiberManualRecordIcon className="dot" />
-                                                <div className="name"><a href={`https://toeic-testpro.com/learning?id=${item._id}`}>{item.name}</a></div>
-                                                <div className="question-number">{item?.topicExercise?.questionsNum} questions</div>
-                                                <div className="test-progress">{item.topicProgress ? item.topicProgress.progress + '%' : '0%'}</div>
-                                            </div>
-                                        ))
-                                        :
-                                        topicTest && topicTest.map((item) => (
-                                            <div className="test-item" key={item.topicExerciseId}>
-                                                <FiberManualRecordIcon className="dot" />
-                                                <div className="name"><a href={`https://toeic-testpro.com/learning?id=${item._id}`}>{item.name}</a></div>
-                                                <div className="question-number">{item?.topicExercise?.questionsNum} questions</div>
-                                                <div className="test-progress">{item.topicProgress ? item.topicProgress.progress + '%' : '0%'}</div>
-                                            </div>
-                                        ))
+                                        topicSection && topicSection.map((item) => {
+                                            const isPlayed = typeof item?.score !== "undefined";
 
+                                            return (
+                                                <div className="test-item" key={item.topicExerciseId}>
+                                                    <Link style={{ color: "#29313A" }} href={`https://toeic-testpro.com/learning?id=${item._id}`} underline="none" flex={1}>
+                                                        <Box display="flex" alignItems="center">
+                                                            {isPlayed ? <img src="/wp-content/uploads/2021/12/Group-9790.svg" alt="check-icon" className="done-topic-icon" /> : <FiberManualRecordIcon className="dot" />}
+                                                            <div className="name">{item.name}</div>
+                                                        </Box>
+                                                    </Link>
+                                                    <Box display="flex" alignItems="center" gap="8px">
+                                                        {isPlayed && <ReviewButton className="btn-review" onClick={() => {
+                                                            window.location.href = `https://toeic-testpro.com/learning?id=${item._id}&review`;
+                                                        }} variant="outlined">Review</ReviewButton>}
+                                                        <div className="test-progress">{!!item.topicProgress ? item.topicProgress.progress + '%' : '0%'}</div>
+                                                    </Box>
+                                                </div>
+                                            )
+                                        })
+                                        :
+                                        topicTest && topicTest.map((item) => {
+                                            const isPlayed = typeof item?.score !== "undefined";
+
+                                            return (
+                                                <div className="test-item" key={item.topicExerciseId}>
+                                                    <Link style={{ color: "#29313A" }} href={`https://toeic-testpro.com/learning?id=${item._id}`} underline="none" flex={1}>
+                                                        <Box display="flex" alignItems="center">
+                                                            {isPlayed ? <img src="/wp-content/uploads/2021/12/Group-9790.svg" alt="check-icon" className="done-topic-icon" /> : <FiberManualRecordIcon className="dot" />}
+                                                            <div className="name">{item.name}</div>
+                                                        </Box>
+                                                    </Link>
+                                                    <Box display="flex" alignItems="center" gap="8px">
+                                                        {isPlayed && <ReviewButton className="btn-review" onClick={() => {
+                                                            window.location.href = `https://toeic-testpro.com/learning?id=${item._id}&review`;
+                                                        }} variant="outlined">Review</ReviewButton>}
+                                                        <div className="test-progress">{!!item.topicProgress ? item.topicProgress.progress + '%' : '0%'}</div>
+                                                    </Box>
+                                                </div>
+                                            )
+                                        })
                                 }
                             </div>
                             <div className={pagination ? 'non-active' : 'show-more'}>
@@ -121,11 +154,9 @@ const Pratice = () => {
                             </div>
                         </div>
                     </Grid>
-                    <Grid item lg={3} md={3} sm={3} xs={12}>
+                    <Grid item lg={3} md={3} sm={12} xs={12}>
                         <div className="other-practice">
-                            <div className="title">
-                                Other Pratice
-                            </div>
+                            <div className="title">Other Practices</div>
                             <div className="practice-child">
                                 <div className={`practice-item vocabulary ` + mapPracticeChild['vocabulary']}>
                                     <div className="name">VOCABULARY</div>
@@ -145,9 +176,7 @@ const Pratice = () => {
                             topic === 'practice'
                                 ?
                                 <div className="section">
-                                    <div className="section-parent">
-                                        <div className="topic">{topic}</div>
-                                    </div>
+                                    <div className="section-parent">OTHER PARTS</div>
                                     <div className="list-section">
                                         {
                                             topicSection && topicSection.map((item, index) => (
